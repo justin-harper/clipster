@@ -45,14 +45,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Clipster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Clipster.Designer.cs">
+      <DependentUpon>Clipster.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MyAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MyAboutBox.designer.cs">
+      <DependentUpon>MyAboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ScreenGrabber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ScreenGrabber.Designer.cs">
+      <DependentUpon>ScreenGrabber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ScreenShot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Clipster.resx">
+      <DependentUpon>Clipster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyAboutBox.resx">
+      <DependentUpon>MyAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScreenGrabber.resx">
+      <DependentUpon>ScreenGrabber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -74,6 +97,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MySplitButton\MySplitButton.csproj">
+      <Project>{A78949E6-8304-40C1-A438-B2DDD13BE2E7}</Project>
+      <Name>MySplitButton</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\toolset_ubL_icon.ico" />
+    <None Include="Assets\images.png" />
+    <None Include="Assets\DropDownArrow.png" />
+    <None Include="Assets\Cancel.ico" />
+    <Content Include="Assets\TaskBarIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\TaskBarIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

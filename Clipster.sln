@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clipster", "Clipster\Clipster.csproj", "{7A078EE7-BAFA-4CAE-B66A-BB4B5A71DF42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySplitButton", "MySplitButton\MySplitButton.csproj", "{A78949E6-8304-40C1-A438-B2DDD13BE2E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7A078EE7-BAFA-4CAE-B66A-BB4B5A71DF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A078EE7-BAFA-4CAE-B66A-BB4B5A71DF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A078EE7-BAFA-4CAE-B66A-BB4B5A71DF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A78949E6-8304-40C1-A438-B2DDD13BE2E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A78949E6-8304-40C1-A438-B2DDD13BE2E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A78949E6-8304-40C1-A438-B2DDD13BE2E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A78949E6-8304-40C1-A438-B2DDD13BE2E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

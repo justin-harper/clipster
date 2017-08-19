@@ -1,6 +1,6 @@
-﻿namespace Clipster
+﻿namespace Clipster.Forms
 {
-    partial class Form1
+    partial class ScreenClipForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ScreenClipForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(518, 416);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "ScreenClipForm";
+            this.Opacity = 0.1D;
+            this.Text = "ScreenClipForm";
+            this.TransparencyKey = System.Drawing.Color.White;
+            this.Load += new System.EventHandler(this.ScreenClipForm_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
