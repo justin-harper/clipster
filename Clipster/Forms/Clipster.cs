@@ -33,7 +33,7 @@ namespace Clipster
 
         private void MySplitButton1_MainButtonClick(object sender, EventArgs e)
         {
-            string fileName = String.Empty;
+            string fileName = string.Empty;
             string fileExt = string.Empty;
 
             if (saveToClipboardToolStripMenuItem.Checked == false)
@@ -42,8 +42,9 @@ namespace Clipster
                 {
                     DefaultExt = "png",
                     Filter =
-                        "jpg files (*.jpg)|*.jpg|png files (*.png)|*.png",
-                    Title = "Save Screenshot As"
+                        "png files (*.png)|*.png|jpg files (*.jpg)|*.jpg",
+                    Title = "Save Screenshot As",
+                    InitialDirectory = Environment.SpecialFolder.Desktop.ToString(),
                 };
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -57,8 +58,7 @@ namespace Clipster
             }
 
             Hide();
-            //System.Threading.Thread.Sleep(500);
-            ScreenGrabber sg = new ScreenGrabber(saveToClipboardToolStripMenuItem.Checked, showCursorToolStripMenuItem.Checked, fileName, fileExt);
+            ScreenGrabber sg = new ScreenGrabber(saveToClipboardToolStripMenuItem.Checked, fileName, fileExt);
             sg.FormClosed += ShowMe;
             sg.Show();
         }
@@ -78,9 +78,10 @@ namespace Clipster
             saveToClipboardToolStripMenuItem.Checked = !saveToClipboardToolStripMenuItem.Checked;
         }
 
-        private void showCursorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showCursorToolStripMenuItem.Checked = !showCursorToolStripMenuItem.Checked;
+            MyAboutBox mab = new MyAboutBox();
+            mab.Show();
         }
     }
 }

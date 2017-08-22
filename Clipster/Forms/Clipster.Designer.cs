@@ -38,7 +38,6 @@
             this.saveToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OptionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showCursorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.ScreenClipMenu.SuspendLayout();
             this.OptionsMenu.SuspendLayout();
@@ -106,10 +105,9 @@
             // ScreenClipMenu
             // 
             this.ScreenClipMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToClipboardToolStripMenuItem,
-            this.showCursorToolStripMenuItem});
+            this.saveToClipboardToolStripMenuItem});
             this.ScreenClipMenu.Name = "ScreenClipMenu";
-            this.ScreenClipMenu.Size = new System.Drawing.Size(170, 70);
+            this.ScreenClipMenu.Size = new System.Drawing.Size(170, 26);
             // 
             // saveToClipboardToolStripMenuItem
             // 
@@ -132,19 +130,13 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // showCursorToolStripMenuItem
-            // 
-            this.showCursorToolStripMenuItem.Name = "showCursorToolStripMenuItem";
-            this.showCursorToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.showCursorToolStripMenuItem.Text = "Show Cursor";
-            this.showCursorToolStripMenuItem.Click += new System.EventHandler(this.showCursorToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // Clipster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 385);
+            this.ClientSize = new System.Drawing.Size(359, 47);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Clipster";
@@ -165,7 +157,6 @@
         private System.Windows.Forms.ContextMenuStrip ScreenClipMenu;
         private System.Windows.Forms.ToolStripMenuItem saveToClipboardToolStripMenuItem;
         private MySplitbutton.MySplitButton mySplitButton1;
-        private System.Windows.Forms.ToolStripMenuItem showCursorToolStripMenuItem;
     }
 }
 

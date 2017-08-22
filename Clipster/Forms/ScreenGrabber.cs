@@ -13,12 +13,11 @@ namespace Clipster.Forms
 {
     public partial class ScreenGrabber : Form
     {
-        public ScreenGrabber(bool saveToClipboard, bool showCursor, string fileName, string fileExt)
+        public ScreenGrabber(bool saveToClipboard, string fileName, string fileExt)
         {
             InitializeComponent();
             Clipping = false;
             SaveToClipBoard = saveToClipboard;
-            ShowCursor = showCursor;
             FileName = fileName;
             FileExt = fileExt;
         }
@@ -30,14 +29,15 @@ namespace Clipster.Forms
 
         private Rectangle ScreenShotRect { get; set; }
         private Point StartPoint { get; set; }
-        private Point EndingPoint { get; set; }
+        private Point CurentMousePos { get; set; }
         private Graphics g;
         private Pen MyPen = new Pen(Color.Red, 5);
         private SolidBrush MyBrush = new SolidBrush(System.Drawing.Color.Transparent);
+        private SolidBrush StringBrush = new SolidBrush(Color.Red);
 
-        private Point CurentMousePos { get; set; }
 
         private bool Clipping { get; set; }
+        private bool Done;
 
         private void ScreenGrabber_Load(object sender, EventArgs e)
         {
@@ -62,41 +62,34 @@ namespace Clipster.Forms
 
         private void ScreenGrabber_MouseDown(object sender, MouseEventArgs e)
         {
-            //StartPoint = PointToClient(Cursor.Position);
-
             StartPoint = new Point(e.X, e.Y);
-            Console.WriteLine($"StartPoint: {StartPoint.ToString()}");
+            Console.WriteLine($"StartPoint: {StartPoint}");
             Clipping = true;
         }
 
         private void ScreenGrabber_MouseMove(object sender, MouseEventArgs e)
         {
-            if (Clipping)
-            {
-                CurentMousePos = new Point(e.X, e.Y);
-                Invalidate();
-            }
+            if (!Clipping) {return;}
+
+            CurentMousePos = new Point(e.X, e.Y);
+            Invalidate();
         }
 
         private void ScreenGrabber_MouseUp(object sender, MouseEventArgs e)
         {
             Clipping = false;
-
             SaveSelection();
         }
 
         private void SaveSelection()
         {
-            Point upperLeft = new Point();
-            Point bottomRight = new Point();
-
-            upperLeft.X = ScreenShotRect.X;
-            upperLeft.Y = ScreenShotRect.Y;
-
-            bottomRight.X = ScreenShotRect.X + ScreenShotRect.Width;
-            bottomRight.Y = ScreenShotRect.Y + ScreenShotRect.Height;
-
-            ScreenShot.CaptureImage(ShowCursor, SaveToClipBoard, ScreenShotRect, FileName, FileExt);
+            Opacity = 0.0;
+            System.Threading.Thread.Sleep(250);
+            Rectangle x = RectangleToScreen(ScreenShotRect);
+            ScreenShot.CaptureImage(ShowCursor, SaveToClipBoard, x, FileName, FileExt);
+            Opacity = .50;
+            Done = true;
+            Invalidate();
         }
 
         private void ScreenGrabber_KeyDown(object sender, KeyEventArgs e)
@@ -109,29 +102,42 @@ namespace Clipster.Forms
 
         private void DrawRectangle(Point p1, Point p2, SolidBrush fill, Pen stroke)
         {
-
-            //want to draw a rect from p1 to p2
-
             Rectangle r = new Rectangle(Math.Min(p1.X, p2.X),
                                         Math.Min(p1.Y, p2.Y),
                                         Math.Abs(p1.X - p2.X),
                                         Math.Abs(p1.Y - p2.Y));
 
-
-
             ScreenShotRect = r;
-            Console.WriteLine($"ScreenShotRect: {ScreenShotRect.ToString()}");
             g.FillRectangle(fill, ScreenShotRect);
             g.DrawRectangle(stroke, ScreenShotRect);
 
-            int i = 0;
+            if (!Done) {return;}
+
+            string mess = SaveToClipBoard ? "Copied To Clipboard" : "Saved to File";
+            Font f = new Font("Arial", 32f);
+            SizeF s = g.MeasureString(mess, f);
+
+            StringFormat sf = new StringFormat();
+            sf.LineAlignment = StringAlignment.Center;
+            sf.Alignment = StringAlignment.Center;
+            g.DrawString(mess, f, StringBrush, ScreenShotRect, sf);
+            Timer t = new Timer
+            {
+                Interval = 1000,
+            };
+
+            t.Tick += DoneTimerTick;
+            t.Start();
         }
 
         private void ScreenGrabber_Paint(object sender, PaintEventArgs e)
         {
-
-
             DrawRectangle(StartPoint, CurentMousePos, MyBrush, MyPen);
+        }
+
+        private void DoneTimerTick(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
