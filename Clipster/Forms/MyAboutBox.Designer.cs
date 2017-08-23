@@ -38,6 +38,7 @@
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.Ok_Button = new System.Windows.Forms.Button();
             this.process1 = new System.Diagnostics.Process();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,12 +150,22 @@
             this.process1.StartInfo.UserName = "";
             this.process1.SynchronizingObject = this;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(221, 169);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Noble6 Out!";
+            // 
             // MyAboutBox
             // 
             this.AcceptButton = this.Ok_Button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 218);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Ok_Button);
             this.Controls.Add(this.labelCompanyName);
             this.Controls.Add(this.labelCopyright);
@@ -191,5 +202,6 @@
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.Button Ok_Button;
         private System.Diagnostics.Process process1;
+        private System.Windows.Forms.Label label2;
     }
 }

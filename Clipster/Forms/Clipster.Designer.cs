@@ -38,6 +38,7 @@
             this.saveToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OptionsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.ScreenClipMenu.SuspendLayout();
             this.OptionsMenu.SuspendLayout();
@@ -121,26 +122,36 @@
             // OptionsMenu
             // 
             this.OptionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.checkForUpdatesToolStripMenuItem});
             this.OptionsMenu.Name = "OptionsMenu";
-            this.OptionsMenu.Size = new System.Drawing.Size(108, 26);
+            this.OptionsMenu.Size = new System.Drawing.Size(174, 48);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
+            // 
+            // checkForUpdatesToolStripMenuItem
+            // 
+            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.checkForUpdatesToolStripMenuItem.Text = "Check For Updates";
+            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
             // 
             // Clipster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 47);
+            this.ClientSize = new System.Drawing.Size(359, 46);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Clipster";
             this.Text = "Clipster";
+            this.TopMost = true;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ScreenClipMenu.ResumeLayout(false);
             this.OptionsMenu.ResumeLayout(false);
@@ -157,6 +168,7 @@
         private System.Windows.Forms.ContextMenuStrip ScreenClipMenu;
         private System.Windows.Forms.ToolStripMenuItem saveToClipboardToolStripMenuItem;
         private MySplitbutton.MySplitButton mySplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
     }
 }
 

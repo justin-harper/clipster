@@ -22,6 +22,9 @@ namespace Clipster.Forms
             FileExt = fileExt;
         }
 
+        public event EventHandler MouseDownEvent;
+        public event EventHandler MouseUpEvent;
+
         private readonly bool SaveToClipBoard;
         private readonly bool ShowCursor;
         private readonly string FileName;
@@ -62,6 +65,7 @@ namespace Clipster.Forms
 
         private void ScreenGrabber_MouseDown(object sender, MouseEventArgs e)
         {
+            MouseDownEvent?.Invoke(this, e);
             StartPoint = new Point(e.X, e.Y);
             Console.WriteLine($"StartPoint: {StartPoint}");
             Clipping = true;
@@ -79,15 +83,17 @@ namespace Clipster.Forms
         {
             Clipping = false;
             SaveSelection();
+            MouseUpEvent?.Invoke(this, e);
         }
 
         private void SaveSelection()
         {
+            double o = Opacity;
             Opacity = 0.0;
             System.Threading.Thread.Sleep(250);
             Rectangle x = RectangleToScreen(ScreenShotRect);
             ScreenShot.CaptureImage(ShowCursor, SaveToClipBoard, x, FileName, FileExt);
-            Opacity = .50;
+            Opacity = o;
             Done = true;
             Invalidate();
         }
