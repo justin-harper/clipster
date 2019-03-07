@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Clipster")]
 [assembly: AssemblyDescription(@"Made with ❤ by Justin Harper")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Schweitzer Engineering Laboratories, Inc")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Clipster")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]

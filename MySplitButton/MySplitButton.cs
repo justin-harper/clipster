@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace MySplitbutton
+﻿namespace MySplitbutton
 {
+    using System;
+    using System.ComponentModel;
+    using System.Drawing;
+    using System.Windows.Forms;
+
     public partial class MySplitButton : UserControl
     {
         [Category("Appearance")]
@@ -25,8 +20,8 @@ namespace MySplitbutton
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
         public ContextMenuStrip ButtonDropDownList
         {
-            get => this.ContextMenuStrip;
-            set => this.ContextMenuStrip = value;
+            get => ContextMenuStrip;
+            set => ContextMenuStrip = value;
         }
 
         public event EventHandler MainButtonClick;

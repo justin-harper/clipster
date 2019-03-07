@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-
-namespace Clipster.Forms
+﻿namespace Clipster.Forms
 {
+    using System;
+    using System.Drawing;
+    using System.Windows.Forms;
+
     public partial class ScreenGrabber : Form
     {
         public ScreenGrabber(bool saveToClipboard, string fileName, string fileExt)
@@ -35,7 +28,7 @@ namespace Clipster.Forms
         private Point CurentMousePos { get; set; }
         private Graphics g;
         private Pen MyPen = new Pen(Color.Red, 5);
-        private SolidBrush MyBrush = new SolidBrush(System.Drawing.Color.Transparent);
+        private SolidBrush MyBrush = new SolidBrush(Color.Transparent);
         private SolidBrush StringBrush = new SolidBrush(Color.Red);
 
 
@@ -56,8 +49,10 @@ namespace Clipster.Forms
                 {
                     height = s.Bounds.Height;
                 }
+
                 width += s.Bounds.Width;
             }
+
             Width = width;
             Height = height;
             g = CreateGraphics();
@@ -127,6 +122,7 @@ namespace Clipster.Forms
             sf.LineAlignment = StringAlignment.Center;
             sf.Alignment = StringAlignment.Center;
             g.DrawString(mess, f, StringBrush, ScreenShotRect, sf);
+
             Timer t = new Timer
             {
                 Interval = 1000,

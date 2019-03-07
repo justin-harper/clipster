@@ -1,11 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection;
-using System.Windows.Forms;
-
-namespace Clipster
+﻿namespace Clipster
 {
+    using System;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Reflection;
+    using System.Windows.Forms;
+
     public partial class MyAboutBox : Form
     {
         public MyAboutBox()
@@ -17,7 +17,7 @@ namespace Clipster
             labelCopyright.Text = AssemblyCopyright;
             labelCompanyName.Text = AssemblyCompany;
             labelAssemblyDescription.Text = AssemblyDescription;
-            linkLabel1.Links.Add(0, 5, @"https://confluence.metro.ad.selinc.com/display/VTS/Noble+6+Development");
+            linkLabel1.Links.Add(0, 5, @"https://www.google.com");
         }
 
         #region Assembly Attribute Accessors

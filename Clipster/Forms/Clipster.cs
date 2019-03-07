@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Deployment.Application;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Clipster.Forms;
-
-namespace Clipster
+﻿namespace Clipster
 {
+    using System;
+    using System.Deployment.Application;
+    using System.Drawing;
+    using System.Linq;
+    using System.Windows.Forms;
+    using Forms;
+
     public partial class Clipster : Form
     {
         ScreenGrabber sg;
@@ -50,6 +45,7 @@ namespace Clipster
                     Title = "Save Screenshot As",
                     InitialDirectory = Environment.SpecialFolder.Desktop.ToString(),
                 };
+
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     fileName = sfd.FileName;
@@ -60,8 +56,7 @@ namespace Clipster
                     return;
                 }
             }
-
-            //Hide();
+            
             sg = new ScreenGrabber(saveToClipboardToolStripMenuItem.Checked, fileName, fileExt);
             sg.MouseUpEvent += ShowMe;
             sg.MouseDownEvent += HideMe;
@@ -128,10 +123,7 @@ namespace Clipster
         private void DoUpdate(ApplicationDeployment ad)
         {
             ad.Update();
-            MessageBox.Show(@"Application updated successfuly"
-                            + Environment.NewLine
-                            + @"Please relaunch the application",
-                            @"Update Success");
+            MessageBox.Show($"Application updated successfuly{Environment.NewLine}Please relaunch the application", "Update Success");
             Environment.Exit(0);
         }
     }

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Windows.Forms;
-
-namespace Clipster.Forms
+﻿namespace Clipster.Forms
 {
+    using System;
+    using System.Drawing;
+    using System.Drawing.Imaging;
+    using System.Windows.Forms;
+
     internal class ScreenShot
     {
         public static void CaptureImage(bool showCursor, bool saveToClipBoard, Rectangle saveArea, string fileName, string ext)
